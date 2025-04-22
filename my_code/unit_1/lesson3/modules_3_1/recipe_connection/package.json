@@ -1,0 +1,14 @@
+{
+  "name": "recipe_connection",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tom",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cities": "^2.0.0"
+  }
+}
