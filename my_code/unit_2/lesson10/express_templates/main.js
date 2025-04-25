@@ -1,0 +1,40 @@
+const express = require("express");
+ const app = express();
+ const homeController = require("./controllers/homeController");
+ const layouts = require("express-ejs-layouts");
+
+app.set("port", process.env.PORT || 3000);
+app.set("view engine", "ejs");
+
+app.use(layouts);
+app.use(
+  express.urlencoded({
+    extended: false
+  })
+);
+app.use(express.json());
+
+app.use((req, res, next) => {
+  console.log(`request made to: ${req.url}`);
+  next();
+});
+
+
+app.get("/items/:vegetable", homeController.sendReqParam);
+
+app.post("/", homeController.sendPost);
+
+app.get("/name/:first/:last", (req, res) => {
+    res.render("index", {
+        firstName: req.params.first,
+        surName: req.params.last
+    });
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact");
+});
+
+app.listen(app.get("port"), () => {
+    console.log(`Server running at http://localhost:${app.get("port")}`);
+});
