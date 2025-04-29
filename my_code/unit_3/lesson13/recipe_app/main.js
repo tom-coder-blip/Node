@@ -17,12 +17,29 @@ MongoDB.connect(dbURL, (error, client) => {
   //insert a document into our collection
   db.collection("contacts")
   .insert({
-    name: "Bruce Lee",
-    email: "bruce@lee.com"
+    name: "Jada Mathele",
+    email: "jada@mathele.com"
   }, (error, db) => {
     if (error) throw error;
     console.log(db);
   });
+  db.collection("contacts")
+  .insert({
+    name: "Tom Vuma",
+    email: "vuma@jbjj.com"
+  });
+  db.collection("pets")
+  .insert({
+    species: "Dog",
+    Cuteness: 677
+  });
+  db.collection("Footballers")
+  .insert({
+    name: "Ronaldo",
+    position: "LW"
+  });
+  
+
   //find contacts 
   //print them to console as an array
   db.collection("contacts")
