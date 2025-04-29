@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>500 - Internal Server Error</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: black;
+      color: #00FFAA;
+      font-family: 'Press Start 2P', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+
+    a {
+      color: #00FFAA;
+      text-decoration: none;
+      border: 2px solid #00FFAA;
+      padding: 10px 20px;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #00FFAA;
+      color: black;
+    }
+
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0.4;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>INTERNAL SERVER ERROR :(</h1>
+  <p>return to safety before the space-time continuum collapses.</p>
+  <a href="/">GO HOME</a>
+</body>
+</html>
