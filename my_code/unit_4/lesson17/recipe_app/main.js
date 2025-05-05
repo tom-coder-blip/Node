@@ -10,7 +10,7 @@ const Subscriber = require("./models/subscriber");
 const subscriberController = require("./controllers/subscribersController");
 
 //connecting to database
-mongoose.connect("mongodb://0.0.0.0:27017/confetti_cuisine",
+mongoose.connect("mongodb://0.0.0.0:27017/recipe_db",
   { useNewUrlParser: true }
 );
 
