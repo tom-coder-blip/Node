@@ -2,7 +2,7 @@
 
 const express = require("express");
 const app = express();
-const router = express.Router(); //handles urls
+const router = express.Router();
 const layouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const errorController = require("./controllers/errorController");
@@ -12,11 +12,14 @@ const usersController = require("./controllers/usersController");
 const coursesController = require("./controllers/coursesController");
 const Subscriber = require("./models/subscriber");
 const methodOverride = require("method-override");
+const expressSession = require("express-session");
+const cookieParser = require("cookie-parser");
+const connectFlash = require("connect-flash");
 
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
-  "mongodb://0.0.0.0:27017/confetti_cuisine",
+  "mongodb://0.0.0.0:27017/recipe_db",
   { useNewUrlParser: true }
 );
 mongoose.set("useCreateIndex", true);
@@ -30,6 +33,7 @@ db.once("open", () => {
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 
+//setting up middleware
 router.use(express.static("public"));
 router.use(layouts);
 router.use(
@@ -41,6 +45,22 @@ router.use(express.json());
 router.use(methodOverride("_method", {
   methods: ["POST", "GET"]
 }));
+
+router.use(cookieParser("secret_passcode"));
+router.use(expressSession({
+  secret: "secret_passcode",
+  cookie: {
+    maxAge: 4000000
+  },
+  resave: false,
+  saveUninitialized: false
+}));//session uses cookie-parser
+router.use(connectFlash());//flash messages
+//assign flash messages to local flashMessages variable
+router.use((req, res, next) => {
+  res.locals.flashMessages = req.flash();
+  next();
+});
 
 router.use(homeController.logRequestPaths);
 
