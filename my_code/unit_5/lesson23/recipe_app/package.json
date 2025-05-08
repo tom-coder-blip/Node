@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon main.js"
+    "start": "node main.js"
   },
   "author": "Jon Wexler",
   "license": "ISC",
@@ -22,8 +22,5 @@
     "method-override": "^3.0.0",
     "mongodb": "^3.1.10",
     "mongoose": "^5.13.22"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.10"
   }
 }
