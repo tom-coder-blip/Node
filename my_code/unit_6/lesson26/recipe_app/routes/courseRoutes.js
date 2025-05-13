@@ -11,4 +11,4 @@ router.put("/:id/update", coursesController.update, coursesController.redirectVi
 router.get("/:id", coursesController.show, coursesController.showView);
 router.delete("/:id/delete", coursesController.delete, coursesController.redirectView);
 
-module.exports = router;
+module.exports = router;  
